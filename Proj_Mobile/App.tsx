@@ -6,10 +6,11 @@ import Gato from './src/Exemplo2_Gato';
 import NomePersonalizado from './src/ExemploParametro';
 import Aprovado from './src/Aprovado';
 import ExemploStyleView from './ExemploStyleView';
+import Login from './src/TelaLogin';
 
 function App(): Abobrinha.JSX.Element {
   return (
-    <ExemploStyleView></ExemploStyleView>
+    <Login></Login>
   );
 }
 
