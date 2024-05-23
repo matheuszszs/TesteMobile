@@ -1,17 +1,12 @@
-import Abobrinha from 'react';
-import { Text, TextInput, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { Text } from 'react-native';
+import HomeNavigator from './src/navigation/HomeNavigator';
 
-import HelloWorld from './src/HelloWorld';
-import Gato from './src/Exemplo2_Gato';
-import NomePersonalizado from './src/ExemploParametro';
-import Aprovado from './src/Aprovado';
-import ExemploStyleView from './ExemploStyleView';
-import Login from './src/TelaLogin';
-
-function App(): Abobrinha.JSX.Element {
+export default function App() {
   return (
-    <Login></Login>
+    <NavigationContainer>
+      <HomeNavigator/>
+    </NavigationContainer>
   );
 }
-
-export default App;

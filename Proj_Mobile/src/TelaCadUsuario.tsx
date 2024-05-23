@@ -2,21 +2,31 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'react-native';
 
 import auth from "@react-native-firebase/auth";
-import { LoginProps } from './navigation/HomeNavigator';
-import { NavigationContainer } from '@react-navigation/native';
+import { CadUsuarioProps } from './navigation/HomeNavigator';
 
-const TelaLogin = ({navigation, route} : LoginProps) => {
+const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
     const [email, setEmail] = useState(''); 
     const [senha, setSenha] = useState(''); 
+    const [confirmaSenha, setConfirmaSenha] = useState('');
+//      const [isCarregando, setIsCarregando] = useState(false)
 
-    function logar() {
+    async function cadastrar(){
+        // setIsCarregando(true)
+
         if (verificaCampos()) {
-
             auth()
-                .signInWithEmailAndPassword(email, senha)
-                .then(() => { Alert.alert('Logado com sucesso') })
-                .catch((error) => tratarErros( String(error) ))
+            .createUserWithEmailAndPassword(email, senha)
+            .then(() => {
+                Alert.alert("Conta", 
+                    "Cadastrado com Sucesso")
+                navigation.goBack();
+            })
+            .catch((error) => { tratarErros( String(error) ) })
+            .finally (() => {
+        // setIsCarregando(false)
+            });
         }
+        // setIsCarregando(false)
     }
 
     function verificaCampos(){
@@ -50,7 +60,7 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
             <View style={styles.painel_imagem}>
                 <Image 
                     style={styles.imagem} 
-                    source={{ uri: 'https://cdn.pixabay.com/photo/2013/07/12/18/20/ohm-153294_500.png' }} />
+                    source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} />
             </View>
             
             <View style={styles.container_login}>
@@ -75,18 +85,13 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
                     onPress={logar}>
                     <Text style={styles.desc_botao}>Entrar</Text>
                 </Pressable>
-
-                <Pressable
-                    style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null] }
-                    onPress= {() => {navigation.navigate('TelaCadUsuario')}}>
-                    <Text style={styles.desc_botao}>Cadastrar-se</Text>
-                </Pressable>
             </View>
         </View>
     );
+
 }
 
-export default TelaLogin;
+export default Login;
 
 const styles = StyleSheet.create({
     container: {
