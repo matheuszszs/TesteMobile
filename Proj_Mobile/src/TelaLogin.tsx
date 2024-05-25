@@ -50,7 +50,7 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
             <View style={styles.painel_imagem}>
                 <Image 
                     style={styles.imagem} 
-                    source={{ uri: 'https://cdn.pixabay.com/photo/2013/07/12/18/20/ohm-153294_500.png' }} />
+                    source={{ uri: 'https://cdn.pixabay.com/photo/2013/07/12/18/20/ohm-153294_640.png' }} />
             </View>
             
             <View style={styles.container_login}>

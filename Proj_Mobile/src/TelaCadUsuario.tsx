@@ -3,12 +3,13 @@ import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'reac
 
 import auth from "@react-native-firebase/auth";
 import { CadUsuarioProps } from './navigation/HomeNavigator';
+import Carregamento from './Carregamento';
 
 const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
     const [email, setEmail] = useState(''); 
     const [senha, setSenha] = useState(''); 
     const [confirmaSenha, setConfirmaSenha] = useState('');
-//      const [isCarregando, setIsCarregando] = useState(false)
+    const [isCarregando, setIsCarregando] = useState(false);
 
     async function cadastrar(){
         // setIsCarregando(true)
@@ -31,11 +32,19 @@ const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
 
     function verificaCampos(){
         if (email == ''){
-            Alert.alert("Email em branco", "Digite um email")
+            Alert.alert("Email em branco!", "Digite um email!")
             return false;
         }
         if (senha == ''){
-            Alert.alert("Senha em branco", "Digite uma senha")
+            Alert.alert("Senha em branco!", "Digite uma senha!")
+            return false;
+        }
+        if (confirmaSenha == '') {
+            Alert.alert("Confirmação de senha em branco!", "Digite a confirmação da senha!")
+            return false;
+        }
+        if (senha != confirmaSenha){
+            Alert.alert("Confirmação da senha não confere!", "Digite a confirmação da senha novamente")
             return false;
         }
 
@@ -46,6 +55,8 @@ const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
         console.log(erro);
         if(erro.includes("[auth/invalid-email]")){
             Alert.alert("Email inválido", "Digite um email válido")
+        } else if(erro.includes("[auth/weak-pssword!]")){
+            Alert.alert("Senha fraca!", "A senha conter no mínimo 6 caracteres!")
         } else if(erro.includes("[ INVALID_LOGIN_CREDENTIALS ]")){
             Alert.alert("Login ou senha incorretos", "")
         } else if(erro.includes("[auth/invalid-credential]")){
@@ -57,6 +68,7 @@ const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
 
     return (
         <View style={styles.container}>
+            <Carregamento isCarregando = {isCarregando}/>
             <View style={styles.painel_imagem}>
                 <Image 
                     style={styles.imagem} 
@@ -79,10 +91,12 @@ const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
                 <TextInput
                     style={styles.caixa_texto} 
                     onChangeText={(text) => {setSenha(text)}}/>
-
+                <Text style={styles.titulo_caixa_texto}>
+                    Confirma Senha
+                </Text>
                 <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null] }
-                    onPress={logar}>
+                    onPress={cadastrar}>
                     <Text style={styles.desc_botao}>Entrar</Text>
                 </Pressable>
             </View>
@@ -91,7 +105,7 @@ const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
 
 }
 
-export default Login;
+export default CadastrarUsuario;
 
 const styles = StyleSheet.create({
     container: {

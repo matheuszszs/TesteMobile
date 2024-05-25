@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Alert, Pressable, StyleSheet, Text, TextInput } from 'react-native';
+import { AprovadoProps } from './navigation/HomeNavigator';
 
-const Aprovado = () => {
+const Aprovado2 = ({navigation, route} : AprovadoProps) => {
     const [nome, setNome] = useState('');
     const [nota1, setNota1] = useState(0);
     const [nota2, setNota2] = useState(0);
@@ -60,7 +61,7 @@ const Aprovado = () => {
     )
 };
 
-export default Aprovado;
+export default Aprovado2;
 
 const styles = StyleSheet.create({
     container: {
