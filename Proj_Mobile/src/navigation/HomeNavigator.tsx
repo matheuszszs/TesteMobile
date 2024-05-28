@@ -4,6 +4,8 @@ import TelaCadUsuario from "../TelaCadUsuario"
 import Aprovado from "../Aprovado";
 import TelaPrincipal from "../TelaPrincipal";
 import Aprovado2 from "../Aprovado2";
+import TelaCadNotas from "../TelaCadNotas";
+import TelaCadNota from "../TelaCadNotas";
 
 
 type RootStackParamList = {
@@ -12,7 +14,9 @@ type RootStackParamList = {
     TelaPrincipal: undefined;
     Aprovado: undefined;
     CadMedia: undefined;
-    TelaCadNota: undefined
+    TelaCadNotas: undefined;
+    TelaConNotas: undefined;
+    TelaAltNota: {id: string}
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,7 +30,7 @@ const HomeNavigator = () => {
             <Stack.Screen name = "TelaCadUsuario" component={TelaCadUsuario}/>
             <Stack.Screen name = "TelaPrincipal" component={TelaPrincipal}/>
             <Stack.Screen name = "Aprovado" component={Aprovado2}/>
-            <Stack.Screen name = "CadNota" component={TelaCadNota}/>
+            <Stack.Screen name = "TelaCadNotas" component={TelaCadNota}/>
 
                 </Stack.Navigator>
     );
@@ -36,7 +40,9 @@ type LoginProps = NativeStackScreenProps<RootStackParamList, 'TelaLogin'>;
 type CadUsuarioProps = NativeStackScreenProps<RootStackParamList, 'TelaCadUsuario'>
 type PrincipalProps = NativeStackScreenProps<RootStackParamList, 'TelaPrincipal'>
 type AprovadoProps = NativeStackScreenProps<RootStackParamList, 'Aprovado'>
-type CadNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaCadNota'>
+type CadNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaCadNotas'>
+type ConNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaConNotas'>
+type AltNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaAltNota'>
 
 
 export default HomeNavigator;

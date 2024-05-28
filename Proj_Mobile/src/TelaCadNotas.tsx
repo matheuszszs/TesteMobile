@@ -1,11 +1,11 @@
-import { Alert, Pressable, Text, TextInput } from "react-native";
+import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { useState } from "react";
 import { CadNotaProps } from "./navigation/HomeNavigator";
 import firestore from '@react-native-firebase/firestore'
 import Carregamento from "./Carregamento";
-import { INotas } from "../Model/INotas";
+import { INotas } from "./INotas";
  
-const TelaCadNota = {{ navigation, route }: CadNotaProps} => {
+const TelaCadNota = ({ navigation, route }: CadNotaProps) => {
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
     const [isCarregando, setIsCarregando] = useState(false);
@@ -74,3 +74,38 @@ const TelaCadNota = {{ navigation, route }: CadNotaProps} => {
 
 export default TelaCadNota;
 
+const styles = StyleSheet.create({
+    container: {
+        paddingTop: 20,
+        flex: 1,
+        backgroundColor: 'blue',
+        paddingBottom: 537,
+    },
+    container_login: {
+        paddingTop: 30,
+        flex: 1,
+        backgroundColor: 'blue',
+        paddingBottom: 527,
+    },
+    caixa_texto: {
+        width: '70%',
+        color: 'black',
+        borderWidth: 1,
+        borderRadius: 4,
+        margin: 3,
+        backgroundColor: 'white',
+    },
+    desc_botao: {
+        fontWeight: 'bold',
+        fontSize: 40,
+        color: 'black'
+    },
+    botao: {
+        justifyContent: 'center',
+        backgroundColor: 'green',
+        paddingVertical: 10,
+        paddingHorizontal: 30,
+        marginTop: 20,
+        borderRadius: 10
+    },
+})
