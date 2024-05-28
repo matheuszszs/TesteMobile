@@ -41,9 +41,9 @@ type CadUsuarioProps = NativeStackScreenProps<RootStackParamList, 'TelaCadUsuari
 type PrincipalProps = NativeStackScreenProps<RootStackParamList, 'TelaPrincipal'>
 type AprovadoProps = NativeStackScreenProps<RootStackParamList, 'Aprovado'>
 type CadNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaCadNotas'>
-type ConNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaConNotas'>
+type ConNotasProps = NativeStackScreenProps<RootStackParamList, 'TelaConNotas'>
 type AltNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaAltNota'>
 
 
 export default HomeNavigator;
-export type {LoginProps, CadUsuarioProps,PrincipalProps, AprovadoProps, CadNotaProps};
+export type {LoginProps, CadUsuarioProps,PrincipalProps, AprovadoProps, CadNotaProps, ConNotasProps, AltNotaProps};
