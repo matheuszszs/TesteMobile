@@ -110,7 +110,7 @@ export default TelaLoginFinal;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFACD'
+        backgroundColor: 'gray'
     },
     container_login: {
         flex: 2,
