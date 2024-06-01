@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'react-native';
-
+import { useState } from "react";
+import { LoginFinalProps } from "./navigation/Navegacao";
 import auth from "@react-native-firebase/auth";
-import { LoginProps } from './navigation/HomeNavigator';
-import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet, Text, View, TextInput, Pressable, Image } from 'react-native';
+import { Alert } from "react-native";
 
-const TelaLogin = ({navigation, route} : LoginProps) => {
-    const [email, setEmail] = useState(''); 
-    const [senha, setSenha] = useState(''); 
+const TelaLoginFinal = ({navigation, route} : LoginFinalProps) => {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
-    function logar() {
-        if (verificaCampos()) {
+    function logar(){
+        if(verificaCampos()) {
 
             auth()
                 .signInWithEmailAndPassword(email, senha)
-                .then(() => { navigation.navigate ("TelaPrincipal") })
+                .then(() => {navigation.navigate("TelaPrincipalFinal") })
                 .catch((error) => tratarErros( String(error) ))
         }
+
+        return true;
     }
 
     function verificaCampos(){
         if (email == ''){
-            Alert.alert("Email em branco", "Digite um email")
+            Alert.alert("Email em Branco" , "Digite um email!")
             return false;
-        }
-        if (senha == ''){
-            Alert.alert("Senha em branco", "Digite uma senha")
+        } if (senha == ''){
+            Alert.alert("Senha em Branco", "Digite uma senha!")
             return false;
         }
 
@@ -34,26 +34,26 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
 
     function tratarErros(erro: string){
         console.log(erro);
-        if(erro.includes("[auth/invalid-email]")){
-            Alert.alert("Email inválido", "Digite um email válido")
+        if (erro.includes("[auth/invalid-email]")){
+            Alert.alert("Email inválido", "Digite um email válido!")
         } else if(erro.includes("[ INVALID_LOGIN_CREDENTIALS ]")){
             Alert.alert("Login ou senha incorretos", "")
         } else if(erro.includes("[auth/invalid-credential]")){
             Alert.alert("Login ou senha incorretos", "")
-        }else{
-            Alert.alert("Erro", erro)
+        } else{
+            Alert.alert ("Erro", erro)
         }
     }
 
-    function redefinirSenha() {
+    function redefinirSenha(){
         if (email == '') {
-            Alert.alert('Email em branco', 'Preencha o email')
-            return
+            Alert.alert('Email em branco!', "Preencha o email")
+            return 
         }
 
         auth()
             .sendPasswordResetEmail(email)
-            .then(() => Alert.alert('redefinir senha', 'Enviamos um email para você redefinir sua senha'))
+            .then(() => Alert.alert('Redefinir sua Senha!', 'Um email foi enviado para seu email com orientações para a troca da senha!'))
             .catch((error) => console.log(error))
     }
 
@@ -91,7 +91,7 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
 
                 <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                    onPress={() => { navigation.navigate('TelaLogin') }}>
+                    onPress={() => { navigation.navigate('TelaLoginFinal') }}>
                     <Text style={styles.desc_botao}>Cadastrar</Text>
                 </Pressable>
 
@@ -105,7 +105,7 @@ const TelaLogin = ({navigation, route} : LoginProps) => {
     );
 }
 
-export default TelaLogin;
+export default TelaLoginFinal;
 
 const styles = StyleSheet.create({
     container: {
