@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
-import Carregamento from "./Carregamento";
+import Carregamento from "./ProjetoFinal/Carregamento";
 import firestore from '@react-native-firebase/firestore'
 import { INotas } from "./INotas";
 import { ConNotasProps } from "./navigation/HomeNavigator";

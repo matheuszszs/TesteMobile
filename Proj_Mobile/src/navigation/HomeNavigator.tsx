@@ -1,22 +1,19 @@
 import { NativeStackScreenProps, createNativeStackNavigator } from "@react-navigation/native-stack";
-import TelaLogin from "../TelaLogin";
-import TelaCadUsuario from "../TelaCadUsuario"
-import Aprovado from "../Aprovado";
-import TelaPrincipal from "../TelaPrincipal";
+import TelaCadUsuarioFinal from "../ProjetoFinal/TelaCadUsuarioFinal";
 import Aprovado2 from "../Aprovado2";
-import TelaCadNotas from "../TelaCadNotas";
 import TelaCadNota from "../TelaCadNotas";
+import TelaPrincipalFinal from "../ProjetoFinal/TelaPrincipalFinal";
+import TelaLoginFinal from "../ProjetoFinal/TelaLoginFinal";
 
 
 type RootStackParamList = {
-    TelaLogin: undefined;
-    TelaCadUsuario: undefined;
-    TelaPrincipal: undefined;
     Aprovado: undefined;
     CadMedia: undefined;
     TelaCadNotas: undefined;
     TelaConNotas: undefined;
-    TelaAltNota: {id: string}
+    TelaPrincipalFinal: undefined;
+    TelaLoginFinal: undefined;
+    TelaCadUsuarioFinal: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,11 +21,11 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const HomeNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName = "TelaPrincipal"
+            initialRouteName = "TelaPrincipalFinal"
             screenOptions={{headerShown: false}}>
-            <Stack.Screen name = "TelaLogin" component={TelaLogin}/>
-            <Stack.Screen name = "TelaCadUsuario" component={TelaCadUsuario}/>
-            <Stack.Screen name = "TelaPrincipal" component={TelaPrincipal}/>
+            <Stack.Screen name = "TelaPrincipalFinal" component={TelaPrincipalFinal}/>    
+            <Stack.Screen name = "TelaLoginFinal" component={TelaLoginFinal}/>
+            <Stack.Screen name = "TelaCadUsuarioFinal" component={TelaCadUsuarioFinal}/>
             <Stack.Screen name = "Aprovado" component={Aprovado2}/>
             <Stack.Screen name = "TelaCadNotas" component={TelaCadNota}/>
 
@@ -36,14 +33,14 @@ const HomeNavigator = () => {
     );
 }
 
-type LoginProps = NativeStackScreenProps<RootStackParamList, 'TelaLogin'>;
-type CadUsuarioProps = NativeStackScreenProps<RootStackParamList, 'TelaCadUsuario'>
-type PrincipalProps = NativeStackScreenProps<RootStackParamList, 'TelaPrincipal'>
+type LoginFinalProps = NativeStackScreenProps<RootStackParamList, 'TelaLoginFinal'>;
+type CadUsuarioFinalProps = NativeStackScreenProps<RootStackParamList, 'TelaCadUsuarioFinal'>
+type PrincipalFinalProps = NativeStackScreenProps<RootStackParamList, 'TelaPrincipalFinal'>
 type AprovadoProps = NativeStackScreenProps<RootStackParamList, 'Aprovado'>
 type CadNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaCadNotas'>
 type ConNotasProps = NativeStackScreenProps<RootStackParamList, 'TelaConNotas'>
-type AltNotaProps = NativeStackScreenProps<RootStackParamList, 'TelaAltNota'>
+
 
 
 export default HomeNavigator;
-export type {LoginProps, CadUsuarioProps,PrincipalProps, AprovadoProps, CadNotaProps, ConNotasProps, AltNotaProps};
+export type {LoginFinalProps, CadUsuarioFinalProps, PrincipalFinalProps, AprovadoProps, CadNotaProps, ConNotasProps};

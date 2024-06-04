@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'react-native';
 
 import auth from "@react-native-firebase/auth";
-import { CadUsuarioProps } from './navigation/HomeNavigator';
-import Carregamento from './Carregamento';
+
+import Carregamento from './ProjetoFinal/Carregamento';
 
 const CadastrarUsuario = ({navigation, route }: CadUsuarioProps) => {
     const [email, setEmail] = useState(''); 

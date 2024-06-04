@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'react-native';
-import { PrincipalProps } from '../navigation/HomeNavigator';
 import ListaFlat from '../ListaFlat';
 import { PrincipalFinalProps } from './navigation/Navegacao';
 
@@ -10,7 +9,7 @@ const TelaPrincipalFinal = ({ navigation, route }:
     PrincipalFinalProps) => {
         return (
             <View style={styles.container}>
-                <Text style={styles.titulo}>Bem Vindo</Text>
+                <Text style={styles.titulo}>Bem Vindo ao Cadastro de Clientes</Text>
     
                 {/* <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
@@ -22,9 +21,9 @@ const TelaPrincipalFinal = ({ navigation, route }:
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
                     onPress={() => { navigation.navigate('TelaCadAtendimento') }}>
                     <Text style={styles.desc_botao}>Cadastrar Nota</Text>
-                </Pressable> */}
+                </Pressable>
 
-                <ListaFlat/>
+                <ListaFlat/> */}
             </View>
         );
     }
@@ -34,10 +33,12 @@ const TelaPrincipalFinal = ({ navigation, route }:
     const styles = StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: '#FFFACD'
+            backgroundColor: 'khaki'
         },
         titulo: {
-            fontSize: 40
+            fontSize: 35,
+            color: 'black',
+            textAlign: 'center',
         },
         botao: {
             justifyContent: 'center',

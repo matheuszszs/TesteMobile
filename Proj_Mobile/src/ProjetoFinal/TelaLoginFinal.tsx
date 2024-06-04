@@ -60,9 +60,15 @@ const TelaLoginFinal = ({navigation, route} : LoginFinalProps) => {
     return (
         <View style={styles.container}>
             <View style={styles.painel_imagem}>
+                
+                <Text 
+                style={styles.container_imagem}>
+                    Área de Login
+                </Text>
+
                 <Image
                     style={styles.imagem}
-                    source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png' }} />
+                    source={{ uri: 'https://www.utililar.com.br/cdn/shop/files/Sa09ad88c05e34ef1ad10f0ea79611564i_800x.png?v=1696955488' }} />
             </View>
 
             <View style={styles.container_login}>
@@ -91,7 +97,7 @@ const TelaLoginFinal = ({navigation, route} : LoginFinalProps) => {
 
                 <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                    onPress={() => { navigation.navigate('TelaLoginFinal') }}>
+                    onPress={() => { navigation.navigate('TelaCadUsuarioFinal') }}>
                     <Text style={styles.desc_botao}>Cadastrar</Text>
                 </Pressable>
 
@@ -149,5 +155,10 @@ const styles = StyleSheet.create({
         width: 200, 
         height: 200, 
         resizeMode: "center"
+    },
+    container_imagem: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: 'black'
     }
 });

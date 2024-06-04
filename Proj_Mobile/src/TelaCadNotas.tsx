@@ -2,7 +2,7 @@ import { Alert, Pressable, StyleSheet, Text, TextInput, View } from "react-nativ
 import { useState } from "react";
 import { CadNotaProps } from "./navigation/HomeNavigator";
 import firestore from '@react-native-firebase/firestore'
-import Carregamento from "./Carregamento";
+import Carregamento from "./ProjetoFinal/Carregamento";
 import { INotas } from "./INotas";
  
 const TelaCadNota = ({ navigation, route }: CadNotaProps) => {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Carregamento from "./Carregamento";
+import Carregamento from "./ProjetoFinal/Carregamento";
 import firestore from '@react-native-firebase/firestore'
 import { INotas } from "./INotas";
 import { AltNotaProps } from "./navigation/HomeNavigator";
