@@ -1,13 +1,15 @@
 import { FirebaseFirestoreTypes } from "@react-native-firebase/firestore";
 
-type IClientes = {
+type IAtendimento = {
     id: string,
     nome: string,
     cpf: string,
-    endereco: string,
+    data: string,
+    hora: string,
+    descricao: string,
     created_at: FirebaseFirestoreTypes.FieldValue
 }
 
 export type {
-    IClientes
+    IAtendimento
 };

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Image, Alert } from 'react-native';
-import ListaFlat from '../ListaFlat';
 import { PrincipalFinalProps } from './navigation/Navegacao';
 
 
@@ -11,19 +10,23 @@ const TelaPrincipalFinal = ({ navigation, route }:
             <View style={styles.container}>
                 <Text style={styles.titulo}>Bem Vindo ao Cadastro de Clientes</Text>
     
-                {/* <Pressable
+                <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
                     onPress={() => { navigation.navigate('TelaCadCliente') }}>
-                    <Text style={styles.desc_botao}>Calcular Média</Text>
+                    <Text style={styles.desc_botao}>Cadastrar um Novo Cliente</Text>
                 </Pressable>
     
                 <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                    onPress={() => { navigation.navigate('TelaCadAtendimento') }}>
-                    <Text style={styles.desc_botao}>Cadastrar Nota</Text>
+                    onPress={() => { navigation.navigate('TelaConCliente') }}>
+                    <Text style={styles.desc_botao}>Consultar Clientes</Text>
                 </Pressable>
 
-                <ListaFlat/> */}
+                {/* <Pressable
+                    style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+                    onPress={() => { navigation.navigate('TelaAltCliente') }}>
+                    <Text style={styles.desc_botao}>Alterar Dados do Cliente</Text>
+                </Pressable> */}
             </View>
         );
     }
