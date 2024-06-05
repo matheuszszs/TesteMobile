@@ -116,6 +116,28 @@ const TelaCadCliente = ({ navigation, route }: CadClienteProps) => {
     return cpfFormatado.substring(0,14);
 }
 
+    const ajustaCpf = (text: string) => {
+    const cpfFormatado = formataCPF(text);
+    setCPF(cpfFormatado);
+}
+
+    const formataData = (text: string) => {
+    let cpfFormat = text.replace(/\D/g, '');
+
+    if (cpfFormat.length > 2) {
+        cpfFormat = cpfFormat.replace(/^(\d{2})(\d)/g, '$1/$2');
+        if (cpfFormat.length > 6) {
+            cpfFormat = cpfFormat.replace(/^(\d{2})\/(\d{2})(\d)/g, '$1/$2/$3');
+        }
+    }
+    return cpfFormat.substring(0, 10);
+}
+
+    const ajustaData = (text: string) => {
+    const dataFormatado = formataData(text);
+    setDataNasc(dataFormatado);
+}
+
     return (
         <ScrollView>
             <View style={styles.container_header}>
