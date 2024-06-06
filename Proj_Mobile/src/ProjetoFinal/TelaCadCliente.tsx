@@ -105,6 +105,7 @@ const TelaCadCliente = ({ navigation, route }: CadClienteProps) => {
         return cpfFormatado.substring(0, 14);
 }
 
+<<<<<<< HEAD
     const ajustarCPF = (text: string) => {
      const cpfFormatado = formataCPF(text);
         setCPF(cpfFormatado);
@@ -127,6 +128,29 @@ const TelaCadCliente = ({ navigation, route }: CadClienteProps) => {
         const dataFormatada = formatarData(text);
         setDataNasc(dataFormatada);
     };
+=======
+    const ajustaCpf = (text: string) => {
+    const cpfFormatado = formataCPF(text);
+    setCPF(cpfFormatado);
+}
+
+    const formataData = (text: string) => {
+    let cpfFormat = text.replace(/\D/g, '');
+
+    if (cpfFormat.length > 2) {
+        cpfFormat = cpfFormat.replace(/^(\d{2})(\d)/g, '$1/$2');
+        if (cpfFormat.length > 6) {
+            cpfFormat = cpfFormat.replace(/^(\d{2})\/(\d{2})(\d)/g, '$1/$2/$3');
+        }
+    }
+    return cpfFormat.substring(0, 10);
+}
+
+    const ajustaData = (text: string) => {
+    const dataFormatado = formataData(text);
+    setDataNasc(dataFormatado);
+}
+>>>>>>> a9e986859090426260c2fb9f157beef09e933f2d
 
     return (
         <ScrollView>
