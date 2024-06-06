@@ -4,6 +4,7 @@ type IAtendimento = {
     id: string,
     nome: string,
     cpf: string,
+    cliente: string;
     data: string,
     hora: string,
     descricao: string,

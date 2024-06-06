@@ -17,26 +17,23 @@ const ItemCliente = (props: ItemClienteProps) => {
         <ScrollView>
         <View style={styles.card}>
                 <View style={styles.dados_card}>
-                    <Text style={{ fontSize: 35 }}>
-                        {props.cliente.nome}
-                    </Text>
+                    <Text style={{ fontSize: 35 }}>{props.cliente.nome}</Text>
                     <Text style={{ fontSize: 20 }}>{props.cliente.cpf}</Text>
+                    <Text style={{ fontSize: 20 }}>{props.cliente.dataNasc}</Text>
+                    <Text style={{ fontSize: 20}}>{props.cliente.rua}</Text>
+                    <Text style={{ fontSize: 20 }}>{props.cliente.numero}</Text>
+                    <Text style={{ fontSize: 20 }}>{props.cliente.bairro}</Text>
+                    <Text style={{ fontSize: 20}}>{props.cliente.cidade}</Text>
+                    <Text style={{ fontSize: 20}}>{props.cliente.estado}</Text>
+                    <Text style={{ fontSize: 20}}>{props.cliente.complemento}</Text>
                 </View>
-                <View style={styles.botao_alterar}>
-                    <Pressable
-                        onPress={() => props.onAlterar(props.cliente.id!)}>
-                        <Text style={styles.texto_botao_card}>
-                            A
-                        </Text>
-                    </Pressable>
-                </View>
-
+               
                 <View style={styles.botao_deletar}>
 
                     <Pressable
                         onPress={() => props.onDeletar(props.cliente.id!)}>
                         <Text style={styles.texto_botao_card}>
-                            X
+                            Eliminar Cliente
                         </Text>
                     </Pressable>
                 </View>
@@ -113,7 +110,7 @@ export default TelaConCliente;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFACD'
+        backgroundColor: '#rgba(20,0,300,0.5)'
     },
     titulo: {
         fontSize: 40,
@@ -121,20 +118,21 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     card: {
-        borderWidth: 2,
+        borderWidth: 6,
         borderColor: 'grey',
-        margin: 5,
-        borderRadius: 10,
+        margin: 20,
+        borderRadius: 19,
         padding: 3,
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: 'white'
     },
     dados_card: {
         flex: 1
     },
     botao_deletar: {
-        backgroundColor: 'red',
-        width: 40,
+        borderRadius: 19,
+        backgroundColor: 'pink',
+        width: 330,
         justifyContent: 'center',
         alignItems: 'center',
     },

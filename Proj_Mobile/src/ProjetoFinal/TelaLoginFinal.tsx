@@ -63,12 +63,12 @@ const TelaLoginFinal = ({navigation, route} : LoginFinalProps) => {
                 
                 <Text 
                 style={styles.container_imagem}>
-                    Área de Login
+                    Bem Vindo de Volta!
                 </Text>
 
                 <Image
                     style={styles.imagem}
-                    source={{ uri: 'https://www.utililar.com.br/cdn/shop/files/Sa09ad88c05e34ef1ad10f0ea79611564i_800x.png?v=1696955488' }} />
+                    source={{ uri: 'https://cdn-icons-png.flaticon.com/512/1706/1706922.png' }} />
             </View>
 
             <View style={styles.container_login}>
@@ -116,7 +116,7 @@ export default TelaLoginFinal;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray'
+        backgroundColor: 'pink'
     },
     container_login: {
         flex: 2,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     },
     titulo_caixa_texto:{
         fontSize: 25,
-        color: 'black'
+        color: 'black',
     },
     caixa_texto: {
         width: '70%',
@@ -135,8 +135,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'white'
     },
     botao: {
+        color: 'black',
         justifyContent: 'center',
-        backgroundColor: 'green',
+        backgroundColor: 'khaki',
         paddingVertical: 10,
         paddingHorizontal: 30,
         marginTop: 20,
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     },
     desc_botao: {
         fontSize: 20,
-        color: 'white'
+        color: 'black'
     },
     painel_imagem: {
         flex:1,
@@ -159,6 +160,7 @@ const styles = StyleSheet.create({
     container_imagem: {
         fontSize: 30,
         textAlign: 'center',
-        color: 'black'
+        color: 'black',
+        fontFamily: 'Snell Roundhand, cursive'
     }
 });

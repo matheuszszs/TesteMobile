@@ -24,7 +24,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const Navegacao = () => {
     return (
         <Stack.Navigator
-            initialRouteName = "TelaPrincipalFinal"
+            initialRouteName = "TelaLoginFinal"
             screenOptions={{headerShown: false}}>
 
             <Stack.Screen name = "TelaLoginFinal" component = {TelaLoginFinal}/>
@@ -46,10 +46,10 @@ type PrincipalFinalProps = NativeStackScreenProps<RootStackParamList, 'TelaPrinc
 type CadUsuarioFinalProps = NativeStackScreenProps<RootStackParamList, 'TelaCadUsuarioFinal'>
 type ConClienteProps = NativeStackScreenProps<RootStackParamList, 'TelaConCliente'>
 type AltClienteProps = NativeStackScreenProps<RootStackParamList, 'TelaAltCliente'>
-type CadAtendimentoProps = NativeStackScreenProps<RootStackParamList, 'TelaCadAtendimento'>
+type CadAtendProps = NativeStackScreenProps<RootStackParamList, 'TelaCadAtendimento'>
 type ConAtendimentoProps = NativeStackScreenProps<RootStackParamList, 'TelaConAtendimento'>
 
 
 
 export default Navegacao;
-export type {LoginFinalProps, PrincipalFinalProps,CadUsuarioFinalProps, CadClienteProps, ConClienteProps, AltClienteProps,ConAtendimentoProps, CadAtendimentoProps};
+export type {LoginFinalProps, PrincipalFinalProps,CadUsuarioFinalProps, CadClienteProps, ConClienteProps, AltClienteProps,ConAtendimentoProps, CadAtendProps};

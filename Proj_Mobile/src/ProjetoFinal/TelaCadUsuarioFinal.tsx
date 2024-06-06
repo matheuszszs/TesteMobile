@@ -15,7 +15,7 @@ const CadastroUsuarioFinal = ({ navigation, route }: CadUsuarioFinalProps) => {
             auth()
                 .createUserWithEmailAndPassword(email, senha)
                 .then(() => {
-                    Alert.alert("conta",
+                    Alert.alert("Conta",
                         "cadastrado com sucesso!"
                     )
                     navigation.goBack();
@@ -40,13 +40,13 @@ const CadastroUsuarioFinal = ({ navigation, route }: CadUsuarioFinalProps) => {
             return false;
         }
         if (confSenha == '') {
-            Alert.alert("Comfirmação de senha em branco!",
+            Alert.alert("Confirmação de senha em branco!",
                 "Digite a confirmação de senha"
             )
             return false;
         }
         if (senha != confSenha) {
-            Alert.alert("Comfirmação de senha em branco!",
+            Alert.alert("Confirmação de senha em branco!",
                 "Digite a confirmação de senha"
             )
             return false;
@@ -63,7 +63,7 @@ const CadastroUsuarioFinal = ({ navigation, route }: CadUsuarioFinalProps) => {
             Alert.alert("Senha fraca", "A senha deve conter no mínimo 6 dígitos.")
         }
         else if (erro.includes("[auth/email-already-in-use]")) {
-            Alert.alert("email em uso", "O email inserido já foi cadastrado em outra conta.")
+            Alert.alert("Email em uso", "O email inserido já foi cadastrado em outra conta.")
         } else {
             Alert.alert("Erro", erro)
         }
@@ -73,9 +73,14 @@ const CadastroUsuarioFinal = ({ navigation, route }: CadUsuarioFinalProps) => {
         <View style={styles.container}>
             <Carregamento isCarregando={isCarregando} />
             <View style={styles.painel_imagem}>
+            <Text 
+                style={styles.container_imagem}>
+                    Faça seu Cadastro!
+                </Text>
+
                 <Image
                     style={styles.imagem}
-                    source={{ uri: 'https://www.utililar.com.br/cdn/shop/files/Sa09ad88c05e34ef1ad10f0ea79611564i_800x.png?v=1696955488' }} />
+                    source={{ uri: 'https://cdn-icons-png.flaticon.com/512/1706/1706922.png' }} />
             </View>
 
             <View style={styles.container_cadastro}>
@@ -126,7 +131,13 @@ const styles = StyleSheet.create({
     container: {
         paddingTop: 10,
         flex: 1,
-        backgroundColor: 'khaki'
+        backgroundColor: 'pink'
+    },
+    container_imagem: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: 'black',
+        fontFamily: 'Snell Roundhand, cursive'
     },
     container_cadastro: {
         flex: 2,
@@ -147,7 +158,7 @@ const styles = StyleSheet.create({
     },
     botao: {
         justifyContent: 'center',
-        backgroundColor: 'green',
+        backgroundColor: 'khaki',
         paddingVertical: 10,
         paddingHorizontal: 30,
         marginTop: 30,
@@ -155,7 +166,7 @@ const styles = StyleSheet.create({
     },
     desc_botao: {
         fontSize: 20,
-        color: 'white'
+        color: 'black'
     },
     painel_imagem: {
         flex: 1,

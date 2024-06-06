@@ -22,11 +22,17 @@ const TelaPrincipalFinal = ({ navigation, route }:
                     <Text style={styles.desc_botao}>Consultar Clientes</Text>
                 </Pressable>
 
-                {/* <Pressable
+                <Pressable
                     style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
-                    onPress={() => { navigation.navigate('TelaAltCliente') }}>
-                    <Text style={styles.desc_botao}>Alterar Dados do Cliente</Text>
-                </Pressable> */}
+                    onPress={() => { navigation.navigate('TelaCadAtendimento') }}>
+                    <Text style={styles.desc_botao}>Cadastrar Atendimento</Text>
+                </Pressable>
+
+                <Pressable
+                    style={(state) => [styles.botao, state.pressed ? { opacity: 0.5 } : null]}
+                    onPress={() => { navigation.navigate('TelaConAtendimento') }}>
+                    <Text style={styles.desc_botao}>Consultar Atendimento</Text>
+                </Pressable>
             </View>
         );
     }
@@ -36,7 +42,7 @@ const TelaPrincipalFinal = ({ navigation, route }:
     const styles = StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: 'khaki'
+            backgroundColor: '#EA72F0'
         },
         titulo: {
             fontSize: 35,
@@ -45,15 +51,15 @@ const TelaPrincipalFinal = ({ navigation, route }:
         },
         botao: {
             justifyContent: 'center',
-            backgroundColor: 'green',
+            backgroundColor: '#FBFFA5',
             paddingVertical: 10,
             paddingHorizontal: 30,
-            marginTop: 20,
-            borderRadius: 10
+            marginTop: 50,
+            borderRadius: 160,
         },
         desc_botao: {
             fontSize: 20,
-            color: 'white'
+            color: 'black'
         },
     });
     

@@ -3,56 +3,27 @@ import { IAtendimento } from "./model/IAtendimento";
 import { useEffect, useState } from "react";
 import firestore from '@react-native-firebase/firestore'
 import Carregamento from "./Carregamento";
+import { ConAtendimentoProps } from "./navigation/Navegacao";
 
-type AtendimentoProps = {
-    numero: number;
-    atendimento: IAtendimento;
-    onAlterar: (id: string) => void;
-    onDeletar: (id: string) => void;
-    onInform: (id: string) => void;
-}
 
-const ItemAtendimento = (props: AtendimentoProps) => {
-
+const ItemAtendimento = ({ atendimento }: { atendimento: IAtendimento }) => {
     return (
-        <ScrollView>
-            <View style={styles.card}>
-                <View style={styles.dados_card}>
-                    <Text style={{ fontSize: 35 }}>
-                        {props.numero + 1 + ' - ' + props.atendimento.nome}
-                    </Text>
-                    <Text style={{ fontSize: 20 }}>{props.atendimento.cpf}</Text>
-                </View>
-
-                <View style={styles.botao_info}>
-                    <Pressable
-                        onPress={() => props.onInform(props.atendimento.id!)}>
-                        <Text style={styles.texto_botao_card}>
-                            i
-                        </Text>
-                    </Pressable>
-                </View>
-                <View style={styles.botao_alterar}>
-                    <Pressable
-                        onPress={() => props.onAlterar(props.atendimento.id!)}>
-                        <Text style={styles.texto_botao_card}>
-                            A
-                        </Text>
-                    </Pressable>
-                </View>
-
-                <View style={styles.botao_deletar}>
-
-                    <Pressable
-                        onPress={() => props.onDeletar(props.atendimento.id!)}>
-                        <Text style={styles.texto_botao_card}>
-                            X
-                        </Text>
-                    </Pressable>
-                </View>
-
+        <View style={styles.card}>
+            <View style={styles.dados_card}>
+                <Text style={styles.titulo}>
+                    {' Nome do cliente: ' + atendimento.cliente}
+                </Text>
+                <Text style={styles.texto}>
+                    {'Data: ' + atendimento.data}
+                </Text>
+                <Text style={styles.texto}>
+                    {'Hora: ' + atendimento.hora}
+                </Text>
+                <Text style={styles.texto}>
+                    {'Descrição: ' + atendimento.descricao}
+                </Text>
             </View>
-        </ScrollView>
+        </View>
     );
 }
 
@@ -82,49 +53,27 @@ const TelaConAtendimento = ({ navigation, route }: ConAtendimentoProps) => {
         return () => subscribe();
     }, []);
 
-    function alterarAtendimeto(id: string) {
-        navigation.navigate("TelaAltAtend", { id: id })
-    }
-    function infoAtendimeto(id: string) {
-        navigation.navigate("TelaInfoAted", { id: id })
-    }
-
-    function deletarAtendimento(id: string) {
-
-        if (confirm('Tem cereteza que deseja deletar o atendimento?') == true) {
-            setIsCarregando(true);
-
-            firestore()
-                .collection('atendimento')
-                .doc(id)
-                .delete()
-                .then(() => {
-                    Alert.alert("Atendimento removido com sucesso!")
-                })
-                .catch((error) => console.log(error))
-                .finally(() => setIsCarregando(false));
-        } else {
-            return false;
-        }
-
-    }
-
     return (
         <View style={styles.container}>
             <Carregamento isCarregando={isCarregando} />
+            <View style={styles.container_header}>
+                <Text style={styles.titulo_T}>Lista de Atendimentos</Text>
+            </View>
 
-            <Text style={styles.titulo}>Listagem de atendimentos</Text>
             <FlatList
                 data={atendimento}
-                renderItem={(info) =>
+                renderItem={({ item }) =>
                     <ItemAtendimento
-                        numero={info.index}
-                        atendimento={info.item}
-                        onAlterar={alterarAtendimeto}
-                        onDeletar={deletarAtendimento}
-                        onInform={infoAtendimeto} />}>
-
-            </FlatList>
+                        atendimento={item}
+                    />}
+            />
+            <View style={styles.container_body}>
+                <Pressable
+                    style={styles.botao}
+                    onPress={() => { navigation.goBack() }}>
+                    <Text style={styles.desc_botao}>Voltar</Text>
+                </Pressable>
+            </View>
         </View>
     );
 }
@@ -134,12 +83,52 @@ export default TelaConAtendimento;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#1c62be'
+        backgroundColor: '#FFFACD'
+    },
+    texto: {
+        fontSize: 18,
+        color: 'white',
+        marginBottom: 5
+    },
+    container_body: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: 40,
     },
     titulo: {
         fontSize: 40,
         textAlign: 'center',
         color: 'black'
+    },  
+    container_header: {
+        backgroundColor: 'rgba(20,0,300,0.5)',
+        padding: 30,
+    },
+    titulo_T: {
+        fontSize: 30,
+        textAlign: 'center',
+        color: 'white',
+        marginBottom: 10
+    },
+    botao: {
+        backgroundColor: 'indigo',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 10,
+        marginBottom: 15,
+        shadowColor: '#000000',
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+    },
+    desc_botao: {
+        fontSize: 18,
+        color: '#FFFFFF',
     },
     card: {
         borderWidth: 2,
