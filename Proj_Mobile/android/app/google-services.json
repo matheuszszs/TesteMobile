@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "745425441064",
-    "project_id": "mobile1-92776",
-    "storage_bucket": "mobile1-92776.appspot.com"
+    "project_number": "178877064886",
+    "project_id": "recup-1b4b7",
+    "storage_bucket": "recup-1b4b7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:745425441064:android:7347b573d6e740344ec01d",
+        "mobilesdk_app_id": "1:178877064886:android:e178e71c2b4b5072f3e817",
         "android_client_info": {
           "package_name": "com.proj_mobile"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDwUk00-vRmIwPru2D-PWMBJwPi2dHedTE"
+          "current_key": "AIzaSyAWziZfKa42BE6vsqQDQSb02NhoHuIh5j0"
         }
       ],
       "services": {
